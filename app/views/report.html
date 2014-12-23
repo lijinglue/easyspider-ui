@@ -1,0 +1,23 @@
+<div class="jumbotron" ng-controller="ReportCtrl">
+
+    <h2>{{title}}</h2>
+
+    <p>{{queueSize}} Keywords are under processing</p>
+
+    <a class="btn btn-danger btn-large" href="{{keywordReport}}">
+        Download Report(organized by keywords)
+        <i class="glyphicon glyphicon-log-in"></i>
+    </a>
+    <a class="btn btn-warning btn-large" href="{{advertiserReport}}">
+        Download Report(organized by advertiser)
+        <i class="glyphicon glyphicon-log-in"></i>
+    </a>
+    <a class="btn btn-success btn-large" href="{{coverageReport}}">
+        Download Report(organized by coverage)
+        <i class="glyphicon glyphicon-log-in"></i>
+    </a>
+    <a class="btn btn-info btn-large" href="{{brandReport}}">
+        Download Report(organized by brandzone)
+        <i class="glyphicon glyphicon-log-in"></i>
+    </a>
+</div>

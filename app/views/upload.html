@@ -1,0 +1,13 @@
+<div class="jumbotron" ng-controller="UploadCtrl">
+
+    <h2>{{title}}</h2>
+
+    <p>Import keyword file, the file should contains one and only one keyword each line</p>
+
+    <form>
+        <button ng-file-select ng-model="files" multiple="false"  class="btn btn-block btn-danger btn-large">
+            {{loadBtn.text}}
+            <i class="glyphicon glyphicon-log-in"></i>
+        </button>
+    </form>
+</div>

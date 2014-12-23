@@ -1,0 +1,43 @@
+<div ng-class="containerStyle" ng-controller="QuickSearchCtrl">
+    <h1 class="hide">ClusterTech</h1>
+
+    <p class="lead">
+
+    <div ng-hide="hasResults">
+        <h2>AdTracker</h2>
+        <p>Quick Search allows you to quickly add keywords to be processed</p>
+        <p>One word a line, if you need to add massive amount of keyword, use "Upload keywords"</p>
+    </div>
+    </p>
+    <div class="visible">
+
+        <div>
+            <form ng-submit="search(keywords)">
+                <textarea ng-model="keywords" class="form-control" rows="5"></textarea>
+                <button ng-class="keywords == undefined ? 'disabled':''"
+                        class="btn btn-block btn-large btn-primary" type="submit">Search
+                </button>
+            </form>
+        </div>
+        <div ng-if="hasResults">
+            <div class="search-result-area">
+                <div class="search-result-item" ng-repeat="r in results">
+                    <p class="twitter-name">File:{{r.path}}</p>
+
+                    <div ng-bind-html="r.content"></div>
+                </div>
+            </div>
+            <div class="row" ng-if="results.length/perPageLimit > 0">
+                <ul class="pagination">
+                    <li class="disabled"><a style="cursor: hand;cursor: pointer;"
+                                            ng-click="search(searchQuery,0)">&laquo;</a></li>
+                    <li ng-class="page === n? 'active':''" ng-repeat="n in [] |range: totalPage"><a
+                            style="cursor: hand;cursor: pointer;" ng-click="search(searchQuery,n)">{{n+1}} <span
+                            class="sr-only"></span></a></li>
+                    <li class="disabled"><a style="cursor: hand;cursor: pointer;"
+                                            ng-click="search(searchQuery,totalPage -1)">&raquo;</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
